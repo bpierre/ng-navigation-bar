@@ -1,0 +1,233 @@
+@import 'nib/vendor'
+vendor-prefixes = webkit official
+support-for-ie = false
+
+navbar-title-color ?= rgb(0, 0, 0)
+navbar-button-color ?= rgb(21, 125, 251)
+navbar-anim-duration ?= 0.6s
+// navbar-anim-duration ?= 10s
+
+navbar-timing-function ?= cubic-bezier(.1, .7, .1, 1);
+// navbar-timing-function ?= cubic-bezier(.6, .1, .3, 1);
+
+.demo
+  width: 320px
+  height: 480px
+  margin: 0 auto
+  background: white
+  border: 1px solid grey
+  .navbar
+    border-bottom: 1px solid grey
+
+.navbar
+  overflow: hidden
+  position: relative
+  height: 45px
+  margin: 0 auto
+  font: 300 17px/45px "Helvetica Neue"
+  -webkit-font-smoothing: antialiased;
+  -moz-user-select: none
+  user-select: none
+  h1
+    margin: 0
+    font-weight: 500
+    font-size: 17px
+  a
+    cursor: pointer
+
+.navbar-screen
+  z-index: 2
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+
+$navbar-region
+  position: absolute
+  left: 0
+  right: 0
+  top: 0
+  bottom: 0
+  margin: 0
+  opacity: 1
+  backface-visibility: hidden
+  a, h1
+    display: inline-block
+    height: 100%
+    padding: 0 10px
+    color: navbar-title-color
+    backface-visibility: hidden
+
+navbar-position(pos='left')
+  percent = 0
+  percent2 = 0
+  if (pos == 'center')
+    percent = 50
+    percent2 = -50
+  if (pos == 'right')
+    percent = 100
+    percent2 = -100
+  if (pos == 'right-outside')
+    percent = 100
+    percent2 = 0
+  if (pos == 'left-outside')
+    percent = 0
+    percent2 = -100
+  transform: translate3d((percent)%,0,0)
+  a, h1
+    transform: translate3d((percent2)%,0,0)
+
+.navbar-back
+.navbar-action
+  @extend $navbar-region
+  a, h1
+    color: navbar-button-color
+
+.navbar-back
+  navbar-position('left')
+
+.navbar-action
+  navbar-position('right')
+
+.navbar-title
+  @extend $navbar-region
+  navbar-position('center')
+
+// .navbar-screen.hidden-before-enter
+// .navbar-screen.hidden-after-leave
+//   .navbar-title, .navbar-back
+//     button, h1
+//       font-weight: 700
+//   .navbar-back
+//   .navbar-title
+//   .navbar-action
+//     opacity: 0
+
+.navbar-screen.previous
+  display: none
+  z-index: 1
+
+no-anims()
+  .navbar-back
+  .navbar-title
+  .navbar-action
+  a, h1
+    transition: none
+
+.navbar
+  no-anims()
+
+.navbar.before-rtl
+  no-anims()
+  .current
+    .navbar-back
+      navbar-position('center')
+    .navbar-title
+      navbar-position('right-outside')
+    .navbar-back
+    .navbar-title
+    .navbar-action
+      opacity: 0
+  .previous
+    display: block
+
+.navbar.before-rtl.show-rtl
+  .navbar-back
+  .navbar-title
+  .navbar-action
+  a, h1
+    transition:
+      transform navbar-anim-duration navbar-timing-function,
+      opacity navbar-anim-duration navbar-timing-function
+  .current
+    .navbar-back
+      navbar-position('left')
+      opacity: 1
+    .navbar-title
+      navbar-position('center')
+      opacity: 1
+    .navbar-action
+      opacity: 1
+      transition: opacity navbar-anim-duration navbar-timing-function
+  .previous
+    .navbar-back
+      navbar-position('left-outside')
+      opacity: 0
+    .navbar-title
+      navbar-position('left')
+      opacity: 0
+    .navbar-action
+      transition: opacity (navbar-anim-duration / 6) navbar-timing-function
+      opacity: 0
+
+.navbar.before-ltr
+  no-anims()
+  .current
+    .navbar-back
+      navbar-position('left-outside')
+    .navbar-title
+      navbar-position('left')
+    .navbar-back
+    .navbar-title
+    .navbar-action
+      opacity: 0
+  .previous
+    display: block
+
+.navbar.before-ltr.show-ltr
+  .navbar-back
+  .navbar-title
+  .navbar-action
+  a, h1
+    transition:
+      transform navbar-anim-duration navbar-timing-function,
+      opacity navbar-anim-duration navbar-timing-function
+  .current
+    .navbar-back
+      navbar-position('left')
+      opacity: 1
+    .navbar-title
+      navbar-position('center')
+      opacity: 1
+    .navbar-action
+      opacity: 1
+      transition: opacity navbar-anim-duration navbar-timing-function
+  .previous
+    .navbar-back
+      navbar-position('center')
+      opacity: 0
+    .navbar-title
+      navbar-position('right-outside')
+      opacity: 0
+    .navbar-action
+      transition: opacity (navbar-anim-duration / 6) navbar-timing-function
+      opacity: 0
+
+// .navbar.prepare-ltr
+//   .current
+//   .prev
+// 
+// .navbar.show-ltr
+//   .current
+//   .prev
+
+// .navbar-screen.hidden-before-enter
+
+// .navbar.start-next-anim .navbar-screen.temp
+//   opacity: 1
+// 
+// .navbar.start-next-anim .navbar-screen.temp h1
+// .navbar.start-next-anim .navbar-screen.temp h1 span
+//   transform: translate3d(0,0,0)
+//   transition: transform 1s ease-in-out
+// 
+// .navbar.start-next-anim .navbar-screen.temp .navbar-back
+//   display: none
+// 
+// .navbar.start-next-anim .navbar-screen.temp h1
+//   color: navbar-button-color
+// 
+// .navbar.start-next-anim .navbar-screen.current .navbar-back
+//   opacity: 1
+
