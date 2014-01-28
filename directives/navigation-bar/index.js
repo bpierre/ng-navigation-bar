@@ -1,4 +1,4 @@
-app.directive('navigationBar', function($timeout) {
+app.directive('navigationBar', function() {
   return {
     restrict: 'E',
     replace: true,
@@ -26,6 +26,16 @@ app.directive('navigationBar', function($timeout) {
         scope.showLtr = false;
       }
 
+      // scope.$evalAsync fixes a Chrome 30.0.1599 transition bug: the X
+      // position of the text moves at the end of the transition. OK on Safari 7.0
+      // requestAnimationFrame fixes a Firefox 28.0a2 transition bug: the transition
+      // is not always applied.
+      function forceDomApply(fn) {
+        window.requestAnimationFrame(function(){
+          scope.$evalAsync(fn);
+        });
+      }
+
       scope.prevStatus = null;
 
       resetAnim();
@@ -43,12 +53,14 @@ app.directive('navigationBar', function($timeout) {
         // Right-to-left / left-to-right anims
         resetAnim();
         scope.prevStatus = prevStatus;
+
         scope.beforeRtl = (status.move === 'rtl');
         scope.beforeLtr = (status.move === 'ltr');
-        $timeout(function(){
+
+        forceDomApply(function(){
           scope.showRtl = scope.beforeRtl;
           scope.showLtr = scope.beforeLtr;
-        }, 10);
+        });
       }, true);
     }
   };
