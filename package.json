@@ -6,7 +6,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/bpierre/angular-ios-navbar.git"
+    "url": "git://github.com/bpierre/ng-navigation-bar.git"
   },
   "main": "index.js",
   "scripts": {},
