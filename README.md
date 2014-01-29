@@ -1,5 +1,7 @@
 # ng-navigation-bar
 
+![demonstration](demo.gif)
+
 ## npm installation
 
 ```shell
