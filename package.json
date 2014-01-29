@@ -1,6 +1,6 @@
 {
   "name": "ng-navigation-bar",
-  "description": "",
+  "description": "Angular directive: navigation bar for touch interfaces",
   "version": "0.0.1",
   "author": "Pierre Bertet <bonjour@pierrebertet.net> (http://pierrebertet.net/)",
   "license": "MIT",
@@ -9,12 +9,17 @@
     "url": "git://github.com/bpierre/angular-ios-navbar.git"
   },
   "main": "index.js",
-  "scripts": {
-    "test": "mocha"
-  },
+  "scripts": {},
+  "keywords": [
+    "browser",
+    "angular",
+    "angularjs",
+    "touch",
+    "ios",
+    "android"
+  ],
   "dependencies": {},
   "devDependencies": {
-    "tape": "~2.1.0",
     "watchify": "~0.5.4",
     "catw": "~0.2.0",
     "browserify": "~3.24.1",
