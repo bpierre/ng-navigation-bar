@@ -1,20 +1,8 @@
-.demo {
-  width: 320px;
-  height: 480px;
-  margin: 0 auto;
-  background: #fff;
-  border: 1px solid #808080;
-}
-.demo .navbar {
-  border-bottom: 1px solid #808080;
-}
 .navbar {
   overflow: hidden;
   position: relative;
   height: 45px;
   margin: 0 auto;
-  font: 300 17px/45px "Helvetica Neue";
-  -webkit-font-smoothing: antialiased;
   -moz-user-select: none;
   -webkit-user-select: none;
   user-select: none;
@@ -194,8 +182,8 @@
   transform: translate3d(0%, 0, 0);
 }
 .navbar.before-rtl.show-rtl .previous .navbar-action {
-  -webkit-transition: opacity 0.09999999999999999s cubic-bezier(0.1, 0.7, 0.1, 1);
-  transition: opacity 0.09999999999999999s cubic-bezier(0.1, 0.7, 0.1, 1);
+  -webkit-transition: opacity 0.1s cubic-bezier(0.1, 0.7, 0.1, 1);
+  transition: opacity 0.1s cubic-bezier(0.1, 0.7, 0.1, 1);
   opacity: 0;
 }
 .navbar.before-ltr .navbar-back,
@@ -286,8 +274,8 @@
   transform: translate3d(0%, 0, 0);
 }
 .navbar.before-ltr.show-ltr .previous .navbar-action {
-  -webkit-transition: opacity 0.09999999999999999s cubic-bezier(0.1, 0.7, 0.1, 1);
-  transition: opacity 0.09999999999999999s cubic-bezier(0.1, 0.7, 0.1, 1);
+  -webkit-transition: opacity 0.1s cubic-bezier(0.1, 0.7, 0.1, 1);
+  transition: opacity 0.1s cubic-bezier(0.1, 0.7, 0.1, 1);
   opacity: 0;
 }
 .demo {

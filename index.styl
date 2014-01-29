@@ -8,22 +8,11 @@ navbar-anim-duration ?= 0.6s
 
 navbar-timing-function ?= cubic-bezier(.1, .7, .1, 1)
 
-.demo
-  width: 320px
-  height: 480px
-  margin: 0 auto
-  background: white
-  border: 1px solid grey
-  .navbar
-    border-bottom: 1px solid grey
-
 .navbar
   overflow: hidden
   position: relative
   height: 45px
   margin: 0 auto
-  font: 300 17px/45px "Helvetica Neue"
-  -webkit-font-smoothing: antialiased;
   -moz-user-select: none
   user-select: none
   h1
@@ -92,16 +81,6 @@ navbar-position(pos='left')
   @extend $navbar-region
   navbar-position('center')
 
-// .navbar-screen.hidden-before-enter
-// .navbar-screen.hidden-after-leave
-//   .navbar-title, .navbar-back
-//     button, h1
-//       font-weight: 700
-//   .navbar-back
-//   .navbar-title
-//   .navbar-action
-//     opacity: 0
-
 .navbar-screen.previous
   display: none
   z-index: 1
@@ -156,7 +135,7 @@ no-anims()
       navbar-position('left')
       opacity: 0
     .navbar-action
-      transition: opacity (navbar-anim-duration / 6) navbar-timing-function
+      transition: opacity round(navbar-anim-duration / 6, 1) navbar-timing-function
       opacity: 0
 
 .navbar.before-ltr
@@ -199,5 +178,5 @@ no-anims()
       navbar-position('right-outside')
       opacity: 0
     .navbar-action
-      transition: opacity (navbar-anim-duration / 6) navbar-timing-function
+      transition: opacity round(navbar-anim-duration / 6, 1) navbar-timing-function
       opacity: 0
