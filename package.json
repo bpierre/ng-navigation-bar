@@ -1,0 +1,25 @@
+{
+  "name": "ng-navigation-bar",
+  "description": "",
+  "version": "0.0.0",
+  "author": "Pierre Bertet <bonjour@pierrebertet.net> (http://pierrebertet.net/)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bpierre/angular-ios-navbar.git"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "tape": "~2.1.0",
+    "watchify": "~0.5.4",
+    "catw": "~0.2.0",
+    "browserify": "~3.24.1",
+    "mkdirp": "~0.3.5",
+    "stylus": "~0.42.1",
+    "nib": "~1.0.2"
+  }
+}

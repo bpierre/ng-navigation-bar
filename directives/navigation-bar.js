@@ -1,8 +1,21 @@
-app.directive('navigationBar', function() {
+var navbar = angular.module('navigationBar');
+
+var template = ' \
+<nav class="navbar" ng-class="{ \
+    \'before-rtl\': beforeRtl, \
+    \'before-ltr\': beforeLtr, \
+    \'show-rtl\': showRtl, \
+    \'show-ltr\': showLtr \
+  }"> \
+  <navigation-bar-screen status="status" class="current"></navigation-bar-screen> \
+  <navigation-bar-screen status="prevStatus" class="previous"></navigation-bar-screen> \
+</nav>';
+
+module.exports = navbar.directive('navigationBar', function() {
   return {
     restrict: 'E',
     replace: true,
-    templateUrl: 'directives/navigation-bar/template.html',
+    template: template,
     scope: {
       /* status is an object containing the following properties:
        * String title
