@@ -281,7 +281,7 @@
 .demo {
   width: 320px;
   height: 480px;
-  margin: 0 auto;
+  margin: 40px auto 0;
   background: #fff;
   border: 1px solid #808080;
 }
@@ -299,7 +299,7 @@
 .demo {
   width: 320px;
   height: 480px;
-  margin: 0 auto;
+  margin: 40px auto 0;
   background: #fff;
   border: 1px solid #808080;
 }
