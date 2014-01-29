@@ -1,7 +1,7 @@
 {
   "name": "ng-navigation-bar",
   "description": "Angular directive: navigation bar for touch interfaces",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Pierre Bertet <bonjour@pierrebertet.net> (http://pierrebertet.net/)",
   "license": "MIT",
   "repository": {
